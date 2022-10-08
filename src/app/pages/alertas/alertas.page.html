@@ -1,0 +1,82 @@
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="obtenerCoordenadasActualizar($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Desliza para actualizar"
+      refreshingSpinner="circles" refreshingText="Cargando Alertas...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let alerta of alertasRecibidas; let i = index" size="12">
+        <ion-card class="cardServicio">
+          <ion-card-title class="ion-margin titulo tituloServicio">{{alerta.descripcion}}</ion-card-title>
+          <ion-card-content>
+            <ion-img class="ion-margin-bottom" *ngIf="alerta.ruta?.length > 0" [src]="urlEvidencia+alerta.ruta">
+            </ion-img>
+            <ion-img class="ion-margin-bottom" *ngIf="alerta.ruta?.length == 0"
+              src='https://csi.mipgenlinea.com/cms/assets/images/sinImagen.png'></ion-img>
+            <!-- <div class="row" *ngIf="alerta.ruta?.length > 0"></div> -->
+            <p class="textoServicio">
+              <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+              <strong *ngIf="alerta.comentario?.length > 0"> {{alerta.comentario}}</strong>
+              <strong *ngIf="alerta.comentario?.length == 0"> Sin descripción...</strong>
+            </p>
+            <p class="textoServicio">
+              <ion-icon name="location-outline"></ion-icon> Distancia: {{alerta.distancia}} mts desde tu ubicación
+              actual
+            </p>
+            <p class="textoAhora" *ngIf="alerta.dias == 0">
+              <ion-icon name="time-outline"></ion-icon> En este momento...
+            </p>
+            <p class="textoServicio" *ngIf="alerta.dias > 0">
+              <ion-icon name="hourglass-outline"></ion-icon> Hace {{alerta.dias}} dias
+            </p>
+            <p class="textoServicio" *ngIf="alerta.reacciones > 0">
+              <ion-icon name="accessibility-outline"></ion-icon> {{alerta.reacciones}} personas reaccionaron
+            </p>
+          </ion-card-content>
+          <ion-row class="alertaFooter">
+            <ion-col class="centrarIcono">
+              <!-- <ion-icon name="footsteps-outline" class="ion-padding"></ion-icon> -->
+              <!-- <p class="textoReaccionar">Reaccionar</p> -->
+
+              <ion-button (click)="reaccionar(alerta.latitud, alerta.longitud,alerta.id_coordenadas)"
+                class="botonReaccionar" fill="clear" shape="round">
+                <ion-icon name="footsteps-outline" class="ion-padding iconoAlerta"></ion-icon>Reaccionar
+              </ion-button>
+              <ion-button (click)="compartir(alerta.descripcion,alerta.comentario,alerta.ruta, alerta.distancia, alerta.dias, alerta.id_coordenadas)" class="botonCompartir" fill="clear" shape="round">
+                <ion-icon name="share-social-outline" class="ion-padding iconoAlerta"></ion-icon>Compartir
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <!-- <p class="textoReaccionar">Coordenadas: {{latitudCapturada}}, {{logintudCapturada}}</p> -->
+        </ion-card>
+      </ion-col>
+      <!-- <p><strong *ngIf="alertasRecibidas?.length">No se encontraron alertas</strong></p> -->
+
+      <ion-col *ngIf="sinAlertas">
+        <ion-card class="cardServicio">
+          <ion-card-title class="ion-margin titulo tituloServicio">No se encontraron Alertas</ion-card-title>
+          <ion-card-content>
+            <ion-img class="ion-margin-bottom"
+              src='https://csi.mipgenlinea.com/cms/assets/images/ZonaSegura.png'></ion-img>
+            <p class="textoServicio">
+              <strong>Estás en una zona segura, no se encontraron alertas cercanas</strong>
+            </p>
+            <p class="textoServicio">
+              Puedes movilizarte con tranquilidad, sin embargo te recomendamos que si notas algo que debas reportar, por favor lo hagas de inmediato, así ayudarás a mas usuarios CSI para que estén alerta. Tu me cuidas, yo te cuido: CSI Seguridad al instante.
+            </p>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button class="gestionarCuenta" shape="round" [routerLink]="['/panico']" expand="full" fill="clear" shape="round">
+    Regresar
+  </ion-button>
+</ion-footer>

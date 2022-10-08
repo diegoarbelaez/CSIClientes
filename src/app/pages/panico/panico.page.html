@@ -1,0 +1,149 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>login</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- Contenido si está el usuario activo-->
+<ion-content *ngIf="estadoServicio">
+  <div class="divContenedorPanico">
+    <img class="logoCSI" src="assets/logo_csi_1.png">
+    <p class="slogan">Seguridad al Instante</p>
+    <div style="text-align:center" class="divContenedorBoton animate__animated animate__zoomInUp">
+      <span class="botonPanico">
+        <ion-button shape="circle" [routerLink]="['/timer']">
+          <ion-icon class="powePanico" routerLinkActive="router-link-active" slot="icon-only" name="power-outline">
+          </ion-icon>
+        </ion-button>
+      </span>
+    </div>
+    <p class="texto_apoyo1" *ngIf="estadoServicio">Estado del Servicio: <span class="protegido">PROTEGIDO</span></p>
+    <p class="texto_apoyo1" *ngIf="!estadoServicio">Estado del Servicio: <span class="desprotegido">DESPROTEGIDO</span>
+    </p>
+    <ion-grid [fixed]="true" class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <div class="contenedor_botones">
+            <ion-button expand="block" fill="clear" class="boton_servicio" [routerLink]="['/agentes']">
+              <ion-icon name="accessibility-outline"></ion-icon>
+            </ion-button>
+            <p class="nombreServicio">Agentes Cercanos</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="contenedor_botones">
+            <div class="contenedor_botones">
+              <ion-button expand="block" fill="clear" class="boton_servicio" [routerLink]="['/alertas']">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+              </ion-button>
+              <p class="nombreServicio">Alertas Recientes</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="contenedor_botones">
+            <div class="contenedor_botones">
+              <ion-button expand="block" fill="clear" class="boton_servicio" [routerLink]="['/proximamente']">
+                <ion-icon name="book-outline"></ion-icon>
+              </ion-button>
+              <p class="nombreServicio">Servicios Adicionales</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button *ngIf="zonaSegura" [routerLink]="['/info-segura']" expand="block" fill="clear"
+            class="botonSeguro">
+            Estas en Zona Segura
+            <ion-icon name="checkmark-circle-outline" class="ion-padding"></ion-icon>
+          </ion-button>
+          <ion-button *ngIf="!zonaSegura" [routerLink]="['/info-segura']" expand="block" fill="clear"
+            class="botonInseguro">
+            Estas en Zona Insegura
+            <ion-icon name="hand-left-outline" class="ion-padding"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+
+
+
+<!-- Contenido si está el usuario inactivo-->
+<ion-content *ngIf="!estadoServicio">
+  <div class="divContenedorPanico">
+    <img class="logoCSI" src="assets/logo_csi_1.png">
+    <p class="slogan">Seguridad al Instante</p>
+    <div style="text-align:center" class="divContenedorBoton animate__animated animate__zoomInUp">
+      <span class="botonPanico">
+        <ion-button shape="circle" [routerLink]="['/desprotegido']">
+          <ion-icon class="powePanico" routerLinkActive="router-link-active" slot="icon-only" name="power-outline">
+          </ion-icon>
+        </ion-button>
+      </span>
+    </div>
+    <p class="texto_apoyo1" *ngIf="estadoServicio">Estado del Servicio: <span class="protegido">PROTEGIDO</span></p>
+    <p class="texto_apoyo1" *ngIf="!estadoServicio">Estado del Servicio: <span class="desprotegido">DESPROTEGIDO</span>
+    </p>
+    <ion-grid [fixed]="true" class="ion-padding">
+      <ion-row>
+        <ion-col>
+          <div class="contenedor_botones">
+            <ion-button expand="block" fill="clear" class="boton_servicio_inactivo">
+              <ion-icon name="accessibility-outline"></ion-icon>
+            </ion-button>
+            <p class="nombreServicio_inactivo">Agentes Cercanos</p>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="contenedor_botones">
+            <div class="contenedor_botones">
+              <ion-button expand="block" fill="clear" class="boton_servicio_inactivo">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+              </ion-button>
+              <p class="nombreServicio_inactivo">Alertas Recientes</p>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="contenedor_botones">
+            <div class="contenedor_botones">
+              <ion-button expand="block" fill="clear" class="boton_servicio_inactivo" [routerLink]="['/proximamente']">
+                <ion-icon name="book-outline"></ion-icon>
+              </ion-button>
+              <p class="nombreServicio_inactivo">Servicios Adicionales</p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button [routerLink]="['/info-segura']" expand="block" fill="clear"
+            class="botonSeguro_inactivo">
+            INFORMACIÓN OCULTA
+            <ion-icon name="sad-outline" class="ion-padding"></ion-icon>
+          </ion-button>
+          <ion-button *ngIf="!zonaSegura" [routerLink]="['/info-segura']" expand="block" fill="clear"
+            class="botonInseguro">
+            Estas en Zona Insegura
+            <ion-icon name="hand-left-outline" class="ion-padding"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-button class="gestionarCuenta" shape="round" [routerLink]="['/submenu1']" expand="full" fill="clear"
+    shape="round">
+    Gestionar mi Cuenta
+  </ion-button>
+</ion-footer>

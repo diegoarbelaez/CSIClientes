@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <p class="titulo_submenu1">ELIMINAR CUENTA</p> 
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/panico" text="Regresar" color="secondary" >Regresar</ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="divContenedorInformacion">
+
+    <ion-card class="animate__animated animate__fadeInUpBig">
+      <ion-card-header>
+        <ion-card-title>TU SEGURIDAD NUESTRA PRIORIDAD</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p class="textoInformacion">
+          Si deseas eliminar tu cuenta, toda la información de tus registros se perderá
+        </p>
+        <br>
+        <p class="textoInformacionNegrita">
+          Recomendaciones:
+          <br>
+        </p>
+        <br>
+        <p class="textoInformacion">
+          Por favor ten en cuenta que puedes volver a CSI cuando desees
+        </p>
+        <br>
+        <p class="textoInformacion">
+          Dejarás de recibir notificaciones y demás alertas. Haz click en el botón ELIMINAR para eliminar tu cuenta
+        </p>
+        <br>
+        <ion-button (click)='eliminarUsuario()' class="botonEliminarCuenta" fill="clear"  expand="block" routerLink="/panico">ELIMINAR CUENTA</ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>login</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="contenedorIniciarSesion">
+    <form [formGroup]="validador" (ngSubmit)="enviarCorreo(validador.value)">
+      <ion-card>
+        <div class="contenedorLogo">
+          <ion-img class="logoCSI" src="assets/logo_csi_1.png"></ion-img>
+        </div>
+        <p class="slogan">Seguridad al Instante</p>
+        <p class="slogan">Recuperacion de Contraseña</p>
+      </ion-card>
+      <ion-item>
+        <ion-label class="inputsFormulario" position="floating">Correo Electrónico</ion-label>
+        <!-- <ion-input name="correo" class="inputsFormulario" [(ngModel)]="datosLogin.correo" required></ion-input> -->
+        <ion-input name="correo" formControlName="correo" class="inputsFormulario" [(ngModel)]="credenciales.correo"
+          required></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of mensajesValidacion.correo">
+          <div class="mensajesError"
+            *ngIf="validador.get('correo').hasError(validation.type) && (validador.get('correo').dirty || validador.get('correo').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+      <ion-button class="btn-iniciarSesion" type="submit" fill="solid" shape="round" expand="block"
+        [disabled]="!validador.valid">Recuperar Contraseña
+      </ion-button>
+      <div class="registrate">
+        <!-- <p>¿No tienes cuenta? <span class="negrilla">Registrate</span></p> -->
+        <a routerLink="/iniciosesion"><b>Regresar al Inicio</b></a>
+      </div>
+    </form>
+  </div>
+</ion-content>

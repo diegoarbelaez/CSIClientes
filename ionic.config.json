@@ -1,0 +1,7 @@
+{
+  "name": "CSI Seguridad",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

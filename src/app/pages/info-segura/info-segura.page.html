@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title>login</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div class="divContenedorBoton animate__animated animate__zoomInUp">
+      
+        <ion-img class="logoCSI" src="assets/logo_csi_1.png"></ion-img>
+        <p class="slogan">Seguridad al Instante</p>
+      
+      <div style="text-align:center">
+        <p class="texto_apoyo1"><strong>¿QUÉ SON ZONAS SEGURAS E INSEGURAS?</strong></p>
+      </div>
+      <ion-button expand="block" fill="clear" class="botonSeguro">
+        Estas en Zona Segura
+        <ion-icon name="checkmark-circle-outline" class="ion-padding"></ion-icon>
+      </ion-button>
+      <p class="texto_apoyo1">
+        <strong>¿QUÉ SIGNIFICA QUE ESTÉS EN UNA ZONA SEGURA?</strong>
+      </p>
+      <p class="texto_apoyo2">
+        Cuando estás en una zona segura significa que no se han presentado alertas a 500 metros de donde te encuentras
+        actualmente. La aplicación CSI está monitoreando constantemente con el GPS de tu celular cuales son tus
+        coordenadas y te mostrará cuando estés en una zona segura o insegura, para que sea mas fácil para ti tomar
+        medidas de precaución.
+      </p>
+
+
+
+      <p class="texto_apoyo1">
+        <strong>¿QUÉ SIGNIFICA QUE ESTÉS EN UNA ZONA INSEGURA?</strong>
+      </p>
+      <ion-button expand="block" fill="clear" class="botonInseguro">
+        Estas en Zona Insegura
+        <ion-icon name="hand-left-outline" class="ion-padding"></ion-icon>
+      </ion-button>
+      <p class="texto_apoyo2">
+        Cuando estás en una zona insegura es por que al menos un usuario ha reportado una alerta en los últimos 30 días
+        en un radio de hasta 500 metros de distancia de la posición donde te encuentras actualmente.
+      </p>
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- <div *ngIf="mostrarAyuda" class="divContenedorBoton animate__animated animate__tada">
+      <div style="text-align:center">
+        <div class="chatPanico">
+          <p><b>Estamos aquí para ayudarte</b></p>
+          <p>Siempre que tengas una situación de riesgo, aquí estaremos para apoyarte</p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- 
+    <ion-button class="btn-iniciarSesion2" [routerLink]="['/submenu1']" routerLinkActive="router-link-active"
+      fill="solid" shape="round" expand="block">Gestionar mi Cuenta</ion-button> -->
+
+</ion-content>
+<ion-footer>
+  <ion-button class="gestionarCuenta" shape="round" [routerLink]="['/panico']" expand="full" fill="clear"
+    shape="round">
+    Regresar
+  </ion-button>
+</ion-footer>

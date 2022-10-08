@@ -1,0 +1,27 @@
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let articulo of serviciosRecibidos; let i = index" size="12">
+        <ion-card class="cardServicio">
+          <ion-card-title class="ion-margin titulo tituloServicio">{{articulo.titulo}}</ion-card-title>
+          <ion-card-content>
+            <ion-img class="ion-margin-bottom" [src]="articulo.url_imagen">
+            </ion-img>
+            <p class="textoServicio">{{articulo.descripcion}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button class="gestionarCuenta" shape="round" [routerLink]="['/panico']" expand="full" fill="clear"
+    shape="round">
+    Regresar
+  </ion-button>
+</ion-footer>
