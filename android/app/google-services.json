@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "931235221476",
+    "project_id": "csiclientes",
+    "storage_bucket": "csiclientes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931235221476:android:64bde2c6f452fee03201f1",
+        "android_client_info": {
+          "package_name": "io.csi.seguridad.colombia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931235221476-6dv5kkkm0u9hpoqulkin41kvlkke06e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCts84fkAnJgaiwK3bJ6jk9T4VPyyYNQcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931235221476-6dv5kkkm0u9hpoqulkin41kvlkke06e0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "931235221476-r5egml7k690ii4ui36bqspirdo7i7uh8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.csi.seguridad.colombia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

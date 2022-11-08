@@ -31,7 +31,7 @@
       </div>
       <ion-item>
         <ion-label class="inputsFormulario" position="floating">Cédula</ion-label>
-        <ion-input name="cedula" formControlName="cedula" class="inputsFormulario" [(ngModel)]="datosRegistro.cedula"
+        <ion-input name="cedula" type="number" formControlName="cedula" class="inputsFormulario" [(ngModel)]="datosRegistro.cedula"
           placeholder="Ingrese su cedula"></ion-input>
       </ion-item>
       <div>
@@ -83,7 +83,7 @@
       </div>
       <ion-item>
         <ion-label class="inputsFormulario" position="floating">Teléfono</ion-label>
-        <ion-input name="telefono" formControlName="telefono" class="inputsFormulario"
+        <ion-input name="telefono" type="number" formControlName="telefono" class="inputsFormulario"
           [(ngModel)]="datosRegistro.telefono" placeholder="Digite su teléfono"></ion-input>
       </ion-item>
       <div>

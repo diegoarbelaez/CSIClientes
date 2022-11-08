@@ -157,7 +157,7 @@ export class SignupPage implements OnInit {
             if (this.imagenAdjunta) {
               this.startUpload(this.images[0]);
             }
-            this.navCtrl.navigateRoot('/informacion', {animated:true});
+            this.navCtrl.navigateRoot('/carga', {animated:true});
             resolve(true);
           } else {
             console.log('No creado!');

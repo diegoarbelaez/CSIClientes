@@ -164,6 +164,12 @@ export class CrudContactosService {
     return this.storage.get('id_usuario');
   }
 
+  //CargarUsuarioUltimo (Creado posteriormente y funciona)
+  async cargarIdUsuario3(){ 
+    this.storage.create();
+    return await this.storage.get('id_usuario');
+  }
+
 
   reaccionarAnteAlerta(id_usuario,id_coordenadas,$latitud,$longitud,){
   

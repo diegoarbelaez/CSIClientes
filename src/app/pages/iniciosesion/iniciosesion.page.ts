@@ -49,11 +49,6 @@ export class IniciosesionPage implements OnInit {
       //Pagina que se muestra cuando el login es OK
       this.navCtrl.navigateRoot('/informacion', {animated:true});
     }
-    else {
-      //Lo que hace si el usuario no es correcto
-      console.log("no debe dejarlo logear");
-      this.herramientasUI.mostrarAlerta("No encontrado","Asegurate de haber escrito bien tus credenciales");
-    }
 
 
 

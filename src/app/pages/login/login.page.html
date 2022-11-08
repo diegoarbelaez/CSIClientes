@@ -5,19 +5,22 @@
 </ion-header>
 
 <ion-content class="divContenedorInicio">
-    <ion-card>
-      <div class="contenedorLogo">
-        <ion-img src="assets/logo_csi_1.png"></ion-img>
-      </div>
-      <p class="slogan">Seguridad al Instante</p>
-    </ion-card>
-
-
-    <ion-button fill="outline" shape="round" expand="block" class="btn-iniciarSesion" routerLink="/iniciosesion">
-      Iniciar Sesión</ion-button>
-
-    <div class="registrate">
-      <!-- <p>¿No tienes cuenta? <span class="negrilla">Registrate</span></p> -->
-      <p>¿No tienes cuenta? <a routerLink="/signup"><b>Registrate</b></a>
-    </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <div class="contenedorLogo">
+            <ion-img class="imagenLogo" src="assets/logo_csi_1.png"></ion-img>
+          </div>
+          <p class="slogan">Seguridad al Instante</p>
+        </ion-card>
+        <ion-button fill="outline" shape="round" expand="block" class="btn-iniciarSesion" routerLink="/iniciosesion">
+          Iniciar Sesión</ion-button>
+        <div class="registrate">
+          <!-- <p>¿No tienes cuenta? <span class="negrilla">Registrate</span></p> -->
+          <p>¿No tienes cuenta? <a routerLink="/signup"><b>Registrate</b></a>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

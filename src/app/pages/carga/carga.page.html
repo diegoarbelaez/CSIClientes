@@ -1,0 +1,120 @@
+<ion-content class="ion-padding">
+  <ion-grid class="gridCargar">
+    <ion-row class="rowCargar">
+      <ion-col size="12">
+        <div class="contenedorLogo">
+          <ion-img class="imagenLogo" src="assets/logo_csi_1.png"></ion-img>
+        </div>
+        <p class="ion-text-center blanco">
+          Por favor carga una foto de tu cédula en su parte delantera
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-img *ngIf="!previews[0]" class="previewDocumento" src="{{imagenesPreview[0]}}"></ion-img>
+        <ion-thumbnail *ngIf="previews[0]">
+          <ion-img [src]="imagenesRecuperadas[0].data"></ion-img>
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button color="secondary" [routerLink]="['/carga']" routerLinkActive="router-link-active" expand="block"
+          class="cargarBoton" (click)="seleccionarImagen1()">Seleccionar...</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <p class="ion-text-center blanco">
+          Por favor carga una foto de tu cédula por la parte trasera
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-img *ngIf="!previews[1]" class="previewDocumento" src="{{imagenesPreview[1]}}"></ion-img>
+        <ion-thumbnail *ngIf="previews[1]">
+          <ion-img [src]="imagenesRecuperadas[1].data"></ion-img>
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button color="secondary" [routerLink]="['/carga']" routerLinkActive="router-link-active" expand="block"
+          class="cargarBoton" (click)="seleccionarImagen2()">Seleccionar...</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col size="12">
+        <p class="ion-text-center blanco">
+          Por favor carga una foto del carnet a la entidad que perteneces
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-img *ngIf="!previews[2]" class="previewDocumento" src="{{imagenesPreview[2]}}"></ion-img>
+        <ion-thumbnail *ngIf="previews[2]">
+          <ion-img [src]="imagenesRecuperadas[2].data"></ion-img>
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button color="secondary" [routerLink]="['/cargar']" routerLinkActive="router-link-active" expand="block"
+          class="cargarBoton" (click)="seleccionarImagen3()">Seleccionar...</ion-button>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size="12">
+        <p class="ion-text-center blanco">
+          Por favor carga una foto tuya con tu cédula
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-img *ngIf="!previews[2]" class="previewDocumento" src="{{imagenesPreview[2]}}">
+        </ion-img>
+        <ion-thumbnail *ngIf="previews[2]">
+          <ion-img [src]="imagenesRecuperadas[2].data"></ion-img>
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding">
+        <ion-button color="secondary" [routerLink]="['/carga']" routerLinkActive="router-link-active" expand="block"
+          class="cargarBoton" (click)="seleccionarImagen4()">Seleccionar...</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button color="secondary" routerLinkActive="router-link-active" expand="block" class="cargarBoton"
+    (click)="iniciarCarga2()">
+    Cargar Archivos
+  </ion-button>
+
+  <!-- <p>Aqui las imagenes de images</p>
+
+  <ion-thumbnail *ngFor="let image of images; let i=index">
+    <ion-img  [src]="images[i].data"></ion-img>
+  </ion-thumbnail> -->
+
+
+
+  <!-- <p>Aqui las imagenes de imagenes recuperadas</p>
+  <div *ngFor="let image of imagenesRecuperadas; let i=index">
+    <p>Ruta: -> {{imagenesRecuperadas[i].path}}</p>
+    <ion-thumbnail>
+      <img [src]="imagenesRecuperadas[i].data">
+    </ion-thumbnail>
+  </div> -->
+
+
+
+
+
+
+  <!-- <ion-button
+    *ngFor="let archivo of imagenesRecuperadas"
+    color="primary"
+    routerLinkActive="router-link-active"
+    expand="block"
+    class="cargarBoton"
+    (click)="startUpload(archivo)"
+    >Cargar</ion-button
+  > -->
+</ion-content>

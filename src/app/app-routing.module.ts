@@ -89,6 +89,14 @@ const routes: Routes = [
     path: 'terminos',
     loadChildren: () => import('./pages/terminos/terminos.module').then( m => m.TerminosPageModule)
   },
+  {
+    path: 'carga',
+    loadChildren: () => import('./pages/carga/carga.module').then( m => m.CargaPageModule)
+  },
+  {
+    path: 'terminos2',
+    loadChildren: () => import('./pages/terminos2/terminos2.module').then( m => m.Terminos2PageModule)
+  },
 ];
 
 @NgModule({

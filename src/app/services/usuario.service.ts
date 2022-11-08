@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage } from '@ionic/storage-angular';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 
 
@@ -25,14 +25,19 @@ export interface eventos {
 export class UsuarioService {
 
   //Importar HTTP y Storage
-  constructor(private http: HttpClient, private storage: Storage, private navCtrl: NavController) { }
+  constructor(private http: HttpClient, private storage: Storage, private navCtrl: NavController, private alertController: AlertController, private loadingCtrl:LoadingController) { }
   //constructor() { }
 
 
 
   token: string = null;
 
-  login(correo: string, password: string) {
+  async login(correo: string, password: string) {
+
+    const loading_alerta = await this.loadingCtrl.create({
+      message: 'Cargando...',
+    });
+    await loading_alerta.present();
 
     const data = { correo: correo, password: password }
 
@@ -42,18 +47,35 @@ export class UsuarioService {
       this.http.post(URL, data)
         .subscribe(async resp => {
           console.log("Respuesta Servidor " + resp['logeado']);
-
-          if (resp['logeado']) {
-            await this.guardarToken(resp['token'], resp['id_usuario']);
-            console.log('Credenciales Correctas!');
-            resolve(true);
-          } else {
-            console.log('Credenciales incorrectas');
-            this.token = null;
-            await this.storage.create();
-            this.storage.clear();
-            resolve(false);
+          switch (resp['logeado']) {
+            case 1:
+              //Credenciales Correctas
+              await this.guardarToken(resp['token'], resp['id_usuario']);
+              console.log('Credenciales Correctas!');
+              this.navCtrl.navigateRoot('/informacion', { animated: true });
+              loading_alerta.dismiss();
+              resolve(true);
+              break;
+            case 2:
+              this.navCtrl.navigateRoot('/terminos2');
+              loading_alerta.dismiss();
+              resolve(false);
+              break;
+            case 3:
+              //Credenciales incorrectas
+              loading_alerta.dismiss();
+              const encabezado = 'Credenciales Incorrectas';
+              const mensaje = 'Verifica la información ingresada e intenta nuevamente';
+              const alert = await this.alertController.create({
+                header: encabezado,
+                message: mensaje,
+                buttons: ['OK']
+              });
+              await alert.present();
+              resolve(false);
+              break;
           }
+
         });
     });
 
@@ -154,7 +176,7 @@ export class UsuarioService {
     return this.http.get(urlService + 'listarNombreEventos.php').toPromise();
   }
 
-  
+
 
 
 

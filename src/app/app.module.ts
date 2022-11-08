@@ -17,6 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //GPS
+
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 //import { Camera } from '@capacitor/camera';
 
